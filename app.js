@@ -2,27 +2,37 @@ let poster = document.getElementById("poster");
 let progress = document.getElementById("progressFill");
 let start = 0;
 
-poster.onwheel = function(e) {
-    poster.scrollLeft += e.deltaY;
-    e.preventDefault();
-};
+if (window.innerWidth > 767) {
 
-document.onkeydown = function(e) {
-    if (e.key == "ArrowRight" || e.key == "ArrowDown") poster.scrollLeft += 300;
-    if (e.key == "ArrowLeft" || e.key == "ArrowUp") poster.scrollLeft -= 300;
-};
+    poster.onwheel = function(e) {
+        poster.scrollLeft += e.deltaY;
+        e.preventDefault();
+    };
 
-poster.onmousedown = function(e) {
-    start = e.pageX;
-};
+    document.onkeydown = function(e) {
+        if (e.key == "ArrowRight" || e.key == "ArrowDown") {
+            poster.scrollLeft += 300;
+        }
 
-poster.onmousemove = function(e) {
-    if (e.buttons == 1) {
-        poster.scrollLeft -= e.pageX - start;
+        if (e.key == "ArrowLeft" || e.key == "ArrowUp") {
+            poster.scrollLeft -= 300;
+        }
+    };
+
+    poster.onmousedown = function(e) {
         start = e.pageX;
-    }
-};
+    };
 
-poster.onscroll = function() {
-    progress.style.width = poster.scrollLeft / (poster.scrollWidth - poster.clientWidth) * 100 + "%";
-};
+    poster.onmousemove = function(e) {
+        if (e.buttons == 1) {
+            poster.scrollLeft -= e.pageX - start;
+            start = e.pageX;
+        }
+    };
+
+    poster.onscroll = function() {
+        progress.style.width =
+            poster.scrollLeft /
+            (poster.scrollWidth - poster.clientWidth) * 100 + "%";
+    };
+}
