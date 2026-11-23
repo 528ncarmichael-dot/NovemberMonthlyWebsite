@@ -517,28 +517,27 @@
         left: 0;
         width: 100%;
         z-index: 1000;
-
         background: #3c0b17;
         border-top: 1px solid #d6ad62;
-
-        justify-content: space-around;
-        align-items: center;
-
-        padding: 12px 5px;
+        overflow-x: auto;
+        white-space: nowrap;
+        justify-content: flex-start;
+        padding: 10px 5px;
     }
 
-    .mobile-bar a {
-        color: #d6ad62;
-        text-decoration: none;
-        font-family: "DM Sans", sans-serif;
-        font-size: 13px;
-        font-weight: bold;
-        padding: 8px;
-    }
+.mobile-bar a {
+    flex-shrink: 0;
+    color: #d6ad62;
+    text-decoration: none;
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 15px;
+}
 
-    .mobile-bar a:active {
-        color: #f3e8d6;
-    }
+.mobile-bar a:active {
+    color: #f3e8d6;
+}
 
     /* SPACE FOR STICKY NAV */
 
